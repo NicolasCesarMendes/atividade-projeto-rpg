@@ -1,0 +1,395 @@
+:root {
+    --roxo-profundo: #1a0b2e;
+    --roxo-noturno: #2a1244;
+    --roxo-medio: #4b1f7a;
+    --roxo-vivo: #7a36c9;
+    --roxo-claro: #b388ff;
+    --roxo-brilho: #d4a5ff;
+    --dourado: #e0c068;
+    --dourado-suave: #f4d98a;
+    --vermelho-critico: #c0392b;
+    --texto: #ece6f5;
+    --texto-suave: #b8a8d0;
+    --borda: rgba(179, 136, 255, 0.25);
+    --sombra-arcana: 0 0 25px rgba(122, 54, 201, 0.35);
+    --gradiente-fundo: radial-gradient(ellipse at top, #2a1244 0%, #1a0b2e 50%, #0d0518 100%);
+    --gradiente-painel: linear-gradient(160deg, rgba(75, 31, 122, 0.55), rgba(26, 11, 46, 0.85));
+    --gradiente-botao: linear-gradient(135deg, #7a36c9, #4b1f7a);
+    --gradiente-botao-hover: linear-gradient(135deg, #9b56e8, #6a2eb0);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Cinzel", "Cormorant Garamond", Georgia, serif;
+    background: var(--gradiente-fundo);
+    background-attachment: fixed;
+    color: var(--texto);
+    min-height: 100vh;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    grid-template-areas:
+        "header header"
+        "aside  acoes"
+        "aside  resultado"
+        "aside  inventario";
+    gap: 25px;
+    line-height: 1.6;
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+    padding: 30px 20px;
+    background: var(--gradiente-painel);
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    box-shadow: var(--sombra-arcana);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(212, 165, 255, 0.12), transparent 70%);
+    pointer-events: none;
+}
+
+header h1 {
+    font-size: 2.4rem;
+    letter-spacing: 3px;
+    color: var(--dourado-suave);
+    text-shadow:
+        0 0 12px rgba(224, 192, 104, 0.55),
+        0 0 30px rgba(122, 54, 201, 0.5);
+}
+
+#painelJanela {
+    margin-top: 12px;
+    color: var(--texto-suave);
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.painel-heroi {
+    grid-area: aside;
+    background: var(--gradiente-painel);
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    padding: 25px 22px;
+    box-shadow: var(--sombra-arcana);
+    text-align: center;
+    position: sticky;
+    top: 30px;
+    height: fit-content;
+    backdrop-filter: blur(6px);
+}
+
+.painel-heroi img {
+    width: 100%;
+    max-width: 240px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid var(--dourado);
+    box-shadow:
+        0 0 20px rgba(224, 192, 104, 0.45),
+        0 0 40px rgba(122, 54, 201, 0.5),
+        inset 0 0 0 1px rgba(244, 217, 138, 0.4);
+    margin-bottom: 18px;
+    background: var(--roxo-profundo);
+}
+
+.painel-heroi h2 {
+    font-size: 1.6rem;
+    color: var(--dourado-suave);
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+    text-shadow: 0 0 10px rgba(224, 192, 104, 0.4);
+}
+
+.painel-heroi .status {
+    background: rgba(13, 5, 24, 0.55);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 12px;
+    text-align: left;
+}
+
+.painel-heroi .status p {
+    font-size: 0.9rem;
+    color: var(--texto);
+    font-family: "Segoe UI", sans-serif;
+}
+
+.painel-heroi .historia {
+    background: rgba(13, 5, 24, 0.4);
+    border-left: 3px solid var(--roxo-vivo);
+    border-radius: 8px;
+    padding: 14px 16px;
+    text-align: left;
+}
+
+.painel-heroi .historia h3 {
+    color: var(--roxo-brilho);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.painel-heroi .historia p {
+    font-size: 0.88rem;
+    color: var(--texto-suave);
+    font-family: "Segoe UI", sans-serif;
+    margin-bottom: 10px;
+}
+
+.acoes {
+    grid-area: acoes;
+    background: var(--gradiente-painel);
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: var(--sombra-arcana);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    align-content: start;
+}
+
+.acoes>#formItem {
+    grid-column: 1 / -1;
+}
+
+.acoes>button {
+    width: 100%;
+    margin: 0;
+}
+
+#formItem {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content 1fr;
+    gap: 16px 18px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+#formItem label {
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--roxo-brilho);
+    white-space: nowrap;
+    margin: 0;
+}
+
+#formItem input {
+    width: 100%;
+    padding: 11px 14px;
+    background: rgba(13, 5, 24, 0.6);
+    color: var(--texto);
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+}
+
+#formItem input::placeholder {
+    color: rgba(184, 168, 208, 0.5);
+}
+
+#formItem input:focus {
+    outline: none;
+    border-color: var(--roxo-claro);
+    box-shadow: 0 0 0 3px rgba(179, 136, 255, 0.2);
+    background: rgba(26, 11, 46, 0.8);
+}
+
+#formItem button[type="submit"] {
+    grid-column: 1 / -1;
+    width: 100%;
+    padding: 14px;
+    margin: 4px 0 0 0;
+}
+
+button {
+    font-family: "Cinzel", serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 12px 22px;
+    margin: 6px 6px 6px 0;
+    background: var(--gradiente-botao);
+    color: var(--texto);
+    border: 1px solid var(--roxo-claro);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 15px rgba(75, 31, 122, 0.5);
+}
+
+button:hover {
+    background: var(--gradiente-botao-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(155, 86, 232, 0.55);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#resultado {
+    grid-area: resultado;
+    text-align: center;
+    font-size: 1.4rem;
+    padding: 18px;
+    color: var(--dourado-suave);
+    background: var(--gradiente-painel);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    letter-spacing: 1.5px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 0 10px rgba(224, 192, 104, 0.35);
+}
+
+.inventario {
+    grid-area: inventario;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.inventario .card,
+.inventario>div {
+    background: var(--gradiente-painel);
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+}
+
+.inventario .card::before,
+.inventario>div::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(179, 136, 255, 0.08), transparent 60%);
+    pointer-events: none;
+}
+
+.inventario .card:hover,
+.inventario>div:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(122, 54, 201, 0.5);
+    border-color: var(--roxo-claro);
+}
+
+.inventario img {
+    width: 100%;
+    max-width: 140px;
+    height: 140px;
+    object-fit: contain;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 0 8px rgba(179, 136, 255, 0.35));
+}
+
+.inventario h3 {
+    color: var(--dourado-suave);
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.inventario p {
+    font-family: "Segoe UI", sans-serif;
+    font-size: 0.88rem;
+    color: var(--texto-suave);
+    margin: 3px 0;
+}
+
+.critico {
+    border: 2px solid var(--vermelho-critico) !important;
+    animation: pulsoCritico 1.6s infinite;
+}
+
+@keyframes pulsoCritico {
+
+    0%,
+    100% {
+        box-shadow: 0 0 12px rgba(192, 57, 43, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 28px rgba(192, 57, 43, 0.95), 0 0 45px rgba(192, 57, 43, 0.5);
+    }
+}
+
+@media (max-width: 900px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "aside"
+            "acoes"
+            "resultado"
+            "inventario";
+        padding: 18px;
+    }
+
+    .painel-heroi {
+        position: static;
+    }
+
+    header h1 {
+        font-size: 1.7rem;
+        letter-spacing: 2px;
+    }
+
+    #formItem {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+        gap: 16px;
+    }
+
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    .acoes {
+        padding: 18px;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .painel-heroi .status {
+        grid-template-columns: 1fr;
+    }
+}
