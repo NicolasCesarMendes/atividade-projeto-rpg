@@ -94,16 +94,16 @@ header h1 {
 
 .painel-heroi img {
     width: 100%;
-    max-width: 240px;
+    max-width: 360px;
     aspect-ratio: 3 / 4;
     object-fit: cover;
     border-radius: 8px;
     border: 3px solid var(--dourado);
     box-shadow:
-        0 0 20px rgba(224, 192, 104, 0.45),
-        0 0 40px rgba(122, 54, 201, 0.5),
-        inset 0 0 0 1px rgba(244, 217, 138, 0.4);
-    margin-bottom: 18px;
+        0 0 25px rgba(224, 192, 104, 0.5),
+    0 0 50px rgba(122, 54, 201, 0.55),
+    inset 0 0 0 1px rgba(244, 217, 138, 0.45);
+  margin-bottom: 20px;
     background: var(--roxo-profundo);
 }
 
