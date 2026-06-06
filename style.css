@@ -1,3 +1,9 @@
+/* 
+    Projeto: Inventário Arcano de Valdrik
+    Aluno: Nícolas César Rodrigues Mendes 
+*/
+
+/* Variáveis globais de cores, sombras e gradientes do tema. */
 :root {
     --roxo-profundo: #1a0b2e;
     --roxo-noturno: #2a1244;
@@ -18,12 +24,14 @@
     --gradiente-botao-hover: linear-gradient(135deg, #9b56e8, #6a2eb0);
 }
 
+/* Reset para padronizar espaçamentos e dimensões. */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* Estilo da estrutura principal da página. */
 body {
     font-family: "Cinzel", "Cormorant Garamond", Georgia, serif;
     background: var(--gradiente-fundo);
@@ -42,6 +50,7 @@ body {
     line-height: 1.6;
 }
 
+/* Estilo do cabeçalho principal do sistema. */
 header {
     grid-area: header;
     text-align: center;
@@ -54,6 +63,7 @@ header {
     overflow: hidden;
 }
 
+/* Efeito visual decorativo aplicado ao cabeçalho. */
 header::before {
     content: "";
     position: absolute;
@@ -62,6 +72,7 @@ header::before {
     pointer-events: none;
 }
 
+/* Estilo do título principal. */
 header h1 {
     font-size: 2.4rem;
     letter-spacing: 3px;
@@ -71,6 +82,7 @@ header h1 {
         0 0 30px rgba(122, 54, 201, 0.5);
 }
 
+/* Estilo do painel que exibe as dimensões da janela do navegador. */
 #painelJanela {
     margin-top: 12px;
     color: var(--texto-suave);
@@ -78,7 +90,8 @@ header h1 {
     font-size: 0.95rem;
 }
 
-.painel-heroi {
+/* Estilo do painel lateral contendo informações do herói. */
+.painelHeroi {
     grid-area: aside;
     background: var(--gradiente-painel);
     border: 1px solid var(--borda);
@@ -92,7 +105,8 @@ header h1 {
     backdrop-filter: blur(6px);
 }
 
-.painel-heroi img {
+/* Estilo da imagem do personagem. */
+.painelHeroi img {
     width: 100%;
     max-width: 360px;
     aspect-ratio: 3 / 4;
@@ -101,13 +115,14 @@ header h1 {
     border: 3px solid var(--dourado);
     box-shadow:
         0 0 25px rgba(224, 192, 104, 0.5),
-    0 0 50px rgba(122, 54, 201, 0.55),
-    inset 0 0 0 1px rgba(244, 217, 138, 0.45);
-  margin-bottom: 20px;
+        0 0 50px rgba(122, 54, 201, 0.55),
+        inset 0 0 0 1px rgba(244, 217, 138, 0.45);
+    margin-bottom: 20px;
     background: var(--roxo-profundo);
 }
 
-.painel-heroi h2 {
+/* Estilo do nome do personagem. */
+.painelHeroi h2 {
     font-size: 1.6rem;
     color: var(--dourado-suave);
     letter-spacing: 2px;
@@ -115,7 +130,8 @@ header h1 {
     text-shadow: 0 0 10px rgba(224, 192, 104, 0.4);
 }
 
-.painel-heroi .status {
+/* Estilo da área que exibe os atributos do personagem. */
+.painelHeroi .status {
     background: rgba(13, 5, 24, 0.55);
     border: 1px solid var(--borda);
     border-radius: 12px;
@@ -127,13 +143,15 @@ header h1 {
     text-align: left;
 }
 
-.painel-heroi .status p {
+/* Estilo do texto dos atributos do herói. */
+.painelHeroi .status p {
     font-size: 0.9rem;
     color: var(--texto);
     font-family: "Segoe UI", sans-serif;
 }
 
-.painel-heroi .historia {
+/* Espaço da história do personagem. */
+.painelHeroi .historia {
     background: rgba(13, 5, 24, 0.4);
     border-left: 3px solid var(--roxo-vivo);
     border-radius: 8px;
@@ -141,7 +159,8 @@ header h1 {
     text-align: left;
 }
 
-.painel-heroi .historia h3 {
+/* Estilo do título da seção da história. */
+.painelHeroi .historia h3 {
     color: var(--roxo-brilho);
     font-size: 1.1rem;
     letter-spacing: 2px;
@@ -149,13 +168,15 @@ header h1 {
     text-transform: uppercase;
 }
 
-.painel-heroi .historia p {
+/* Estilo do texto da história do herói. */
+.painelHeroi .historia p {
     font-size: 0.88rem;
     color: var(--texto-suave);
     font-family: "Segoe UI", sans-serif;
     margin-bottom: 10px;
 }
 
+/* Espaço das ações e controles do inventário. */
 .acoes {
     grid-area: acoes;
     background: var(--gradiente-painel);
@@ -169,15 +190,18 @@ header h1 {
     align-content: start;
 }
 
-.acoes>#formItem {
+/* Espaço ocupado pelo formulário de ações. */
+.acoes > #formItem {
     grid-column: 1 / -1;
 }
 
-.acoes>button {
+/* Estilo dos botões da seção de ações. */
+.acoes > button {
     width: 100%;
     margin: 0;
 }
 
+/* Layout do formulário de cadastro de itens. */
 #formItem {
     display: grid;
     grid-template-columns: max-content 1fr max-content 1fr;
@@ -186,6 +210,7 @@ header h1 {
     margin-bottom: 24px;
 }
 
+/* Estilo dos rótulos dos campos. */
 #formItem label {
     font-size: 0.85rem;
     letter-spacing: 1.5px;
@@ -195,6 +220,7 @@ header h1 {
     margin: 0;
 }
 
+/* Estilo dos campos de entrada de dados. */
 #formItem input {
     width: 100%;
     padding: 11px 14px;
@@ -207,10 +233,18 @@ header h1 {
     transition: all 0.25s ease;
 }
 
+/* Estilo do campo de seleção de imagens. */
+.imagemInput {
+    grid-column: 2 / -1;
+    width: 100%;
+}
+
+/* Estilo do texto de orientação exibido nos campos vazios. */
 #formItem input::placeholder {
     color: rgba(184, 168, 208, 0.5);
 }
 
+/* Efeito aplicado quando um campo recebe foco. */
 #formItem input:focus {
     outline: none;
     border-color: var(--roxo-claro);
@@ -218,13 +252,15 @@ header h1 {
     background: rgba(26, 11, 46, 0.8);
 }
 
-#formItem button[type="submit"] {
+/* Estilo do botão do formulário dos itens. */
+.btnItem {
     grid-column: 1 / -1;
     width: 100%;
     padding: 14px;
     margin: 4px 0 0 0;
 }
 
+/* Estilo de todos os botões. */
 button {
     font-family: "Cinzel", serif;
     letter-spacing: 2px;
@@ -241,16 +277,19 @@ button {
     box-shadow: 0 4px 15px rgba(75, 31, 122, 0.5);
 }
 
+/* Efeito visual ao passar o mouse sobre os botões. */
 button:hover {
     background: var(--gradiente-botao-hover);
     transform: translateY(-2px);
     box-shadow: 0 6px 22px rgba(155, 86, 232, 0.55);
 }
 
+/* Efeito visual ao clicar nos botões. */
 button:active {
     transform: translateY(0);
 }
 
+/* Estilo do espaço para exibir mensagens e resultados. */
 #resultado {
     grid-area: resultado;
     text-align: center;
@@ -268,6 +307,7 @@ button:active {
     text-shadow: 0 0 10px rgba(224, 192, 104, 0.35);
 }
 
+/* Espaço responsável por exibir os itens do inventário. */
 .inventario {
     grid-area: inventario;
     display: grid;
@@ -275,8 +315,9 @@ button:active {
     gap: 20px;
 }
 
+/* Espaço dos cartões individuais dos itens do inventário. */
 .inventario .card,
-.inventario>div {
+.inventario > div {
     background: var(--gradiente-painel);
     border: 1px solid var(--borda);
     border-radius: 14px;
@@ -288,8 +329,9 @@ button:active {
     overflow: hidden;
 }
 
+/* Efeito decorativo aplicado aos cartões. */
 .inventario .card::before,
-.inventario>div::before {
+.inventario > div::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -297,13 +339,15 @@ button:active {
     pointer-events: none;
 }
 
+/* Efeito visual ao passar o mouse sobre os cartões. */
 .inventario .card:hover,
-.inventario>div:hover {
+.inventario > div:hover {
     transform: translateY(-6px);
     box-shadow: 0 10px 30px rgba(122, 54, 201, 0.5);
     border-color: var(--roxo-claro);
 }
 
+/* Estilo das imagens exibidas nos cartões dos itens. */
 .inventario img {
     width: 100%;
     max-width: 140px;
@@ -313,6 +357,7 @@ button:active {
     filter: drop-shadow(0 0 8px rgba(179, 136, 255, 0.35));
 }
 
+/* Estilo dos nomes dos itens exibidos nos cartões. */
 .inventario h3 {
     color: var(--dourado-suave);
     font-size: 1.1rem;
@@ -320,6 +365,7 @@ button:active {
     margin-bottom: 8px;
 }
 
+/* Estilo das informações complementares dos itens. */
 .inventario p {
     font-family: "Segoe UI", sans-serif;
     font-size: 0.88rem;
@@ -327,11 +373,13 @@ button:active {
     margin: 3px 0;
 }
 
+/* Destaque visual para itens com quantidade crítica. */
 .critico {
     border: 2px solid var(--vermelho-critico) !important;
     animation: pulsoCritico 1.6s infinite;
 }
 
+/* Animação utilizada para destacar itens críticos. */
 @keyframes pulsoCritico {
 
     0%,
@@ -344,6 +392,7 @@ button:active {
     }
 }
 
+/* Media Querys para responsividade conforme o tamanho das telas. */
 @media (max-width: 900px) {
     body {
         grid-template-columns: 1fr;
@@ -356,7 +405,7 @@ button:active {
         padding: 18px;
     }
 
-    .painel-heroi {
+    .painelHeroi {
         position: static;
     }
 
@@ -389,7 +438,7 @@ button:active {
         margin: 5px 0;
     }
 
-    .painel-heroi .status {
+    .painelHeroi .status {
         grid-template-columns: 1fr;
     }
 }

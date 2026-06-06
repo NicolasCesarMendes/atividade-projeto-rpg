@@ -1,3 +1,8 @@
+<!--
+    Projeto: Inventário Arcano de Valdrik
+    Aluno: Nícolas César Rodrigues Mendes
+-->
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -7,14 +12,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Cabeçalho principal do sistema. -->
     <header>
         <h1>⚔️ Inventário Arcano de Valdrik</h1>
 
+        <!-- Painel que exibe as dimensões atuais da janela. -->
         <div id="painelJanela"></div>
     </header>
 
-    <aside class="painel-heroi">
-
+    <!-- Painel lateral contendo informações do herói, como sua foto, nome, status e história. -->
+    <aside class="painelHeroi">
         <img src="img/guerreiro.png" alt="Valdrik Ironforge">
 
         <h2>Valdrik Ironforge</h2>
@@ -25,7 +32,7 @@
             <p>❤️ Vida: 1200</p>
             <p>🔮 Mana: 450</p>
             <p>🏹 Agilidade: 60</p>
-            <p>💰 Ouro: 5.320</p>
+            <p>💪 Força: 300</p>
         </div>
 
         <div class="historia">
@@ -34,7 +41,7 @@
             <p>
                 Valdrik Ironforge é um lendário guerreiro da Vila de
                 Valirian. Após derrotar criaturas ancestrais e explorar
-                ruínas esquecidas, encontrou a famosa Mochila Infinita
+                ruínas esquecidas, encontrou a raríssima Mochila Infinita
                 de JavaScript, um artefato mágico capaz de armazenar
                 infinitos equipamentos e organizá-los através de
                 comandos arcanos.
@@ -46,11 +53,13 @@
                 colocam o mundo em perigo.
             </p>
         </div>
-
     </aside>
 
+    <!-- Área de ações e gerenciamento do inventário. -->
     <section class="acoes">
-        <form id="formItem">            
+
+        <!-- Formulário utilizado para cadastrar novos itens. -->
+        <form id="formItem">
             <label for="nome">Nome do Item:</label>
             <input type="text" id="nome" placeholder="Digite o nome do item." required>
 
@@ -64,20 +73,25 @@
             <input type="text" id="categoria" placeholder="Digite a categoria." required>
 
             <label for="imagem">Imagem:</label>
-            <input type="file" id="imagem" accept="image/*">
+            <input class="imagemInput" type="file" id="imagem" accept="image/*">
 
-            <button type="submit">Comprar Item</button>            
+            <button class="btnItem" type="submit">Comprar Item</button>
         </form>
 
+        <!-- Botão que aplica desconto em todos os itens. -->
         <button id="btnDesconto">Aplicar Desconto 10%</button>
 
+        <!-- Botão que exibe apenas os itens da categoria Poções. -->
         <button id="btnFiltro">Mostrar Apenas Poções</button>
 
-        <button id="btnOuro">Contar Ouro</button> 
+        <!-- Botão responsável por calcular o valor total do inventário. -->
+        <button id="btnOuro">Contar Ouro</button>
     </section>
 
+    <!-- Área destinada à exibição de mensagens e resultados. -->
     <h2 id="resultado"></h2>
 
+    <!-- Área onde os cards dos itens são renderizados dinamicamente. -->
     <section id="inventario" class="inventario"></section>
 
     <script src="script.js"></script>
